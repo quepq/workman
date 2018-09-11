@@ -68,7 +68,7 @@ $platformConfigArr = json_decode($redis->get('_config_platform_config'),true);//
 foreach ($platformConfigArr as $platform){
     $platformnewss = $newsConfig[$platform];
     $task_crawl = new Worker();
-    //有几个彩种就创建几个进程
+    //有几个种类就创建几个进程
     $task_crawl->count = count($platformnewss);
     $task_crawl->name = $platform;
     $task_crawl->onWorkerStart = function( $task_crawl ) use ($platform,$platformnewss)
